@@ -1,12 +1,11 @@
 {**
- * Shopware 3.5 Template
+ * Shopware 4 Blank Template
  *
  * @category   Shopware
  * @package    Shopware_Template
  * @subpackage Shopware_Template_Frontend
- * @copyright  Copyright (c) 2010 shopware AG (http://www.shopware.de)
- * @author     hl/shopware AG
- * @author     stp/shopware AG
+ * @copyright  Copyright (c) 2014 scriptkid.de (http://scriptkid.de)
+ * @author     ppassmann/scriptkid.de
  *}
 {block name="frontend_index_start"}{/block}
 <?xml version="1.0" ?>
@@ -32,11 +31,11 @@
 
 {block name='frontend_index_before_page'}{/block}
 
-<div id="top"></div>
+	<!-- <div id="top" class="band"></div> -->
 
 {* Shop header *}
 {block name='frontend_index_navigation'}
-	<div id="header">
+	<div id="header" class="band">
 		<div class="inner">
 
 			{* Trusted Shops *}
@@ -79,7 +78,7 @@
 			
 		</div>
 	</div>
-	<div id="nav">
+	<div id="nav" class="band">
 		<div class="inner">
 			{* Maincategories navigation top *}
 			{block name='frontend_index_navigation_categories_top'}
@@ -88,8 +87,8 @@
 		</div>
 	</div>
 		{/block}
-	<div id="content">
-		<div class="wrap_inner">
+	<div id="content" class="band">
+		<div class="inner">
 			<div class="container_20">				
 				{* Breadcrumb *}
 				{block name='frontend_index_breadcrumb'}
@@ -98,47 +97,40 @@
 				
 				{* Content section *}
 				<div id="content">
-					<div class="inner">
-						
-						{* Content top container *}
-						{block name="frontend_index_content_top"}{/block}
-						
-						{* Sidebar left *}
-						{block name='frontend_index_content_left'}
-							{include file='frontend/index/left.tpl'}
-						{/block}
-						
-						{* Main content *}
-						{block name='frontend_index_content'}{/block}
-						
-						{* Sidebar right *}
-						{block name='frontend_index_content_right'}{/block}
-						
-					</div>
+					{* Content top container *}
+					{block name="frontend_index_content_top"}{/block}
+					
+					{* Sidebar left *}
+					{block name='frontend_index_content_left'}
+						{include file='frontend/index/left.tpl'}
+					{/block}
+					
+					{* Main content *}
+					{block name='frontend_index_content'}{/block}
+					
+					{* Sidebar right *}
+					{block name='frontend_index_content_right'}{/block}
 				</div>
 				{* Footer *}
 				{block name="frontend_index_footer"}
-				    {if $sLastArticlesShow && !$isEmotionLandingPage}
-                        {include file="frontend/plugins/index/viewlast.tpl"}
-				    {/if}
+					{if $sLastArticlesShow && !$isEmotionLandingPage}
+						{include file="frontend/plugins/index/viewlast.tpl"}
+					{/if}
 				{/block}
 			</div>
-			
-		{block name="frontend_index_shopware_footer"}
 		</div>
 	</div>
 
 	{* FOOTER *}
-	
-	<div id="footer">
-		<div class="inner">
-			{include file='frontend/index/footer.tpl'}
+	{block name="frontend_index_shopware_footer"}
+		<div id="footer" class="band">
+			<div class="inner">
+				{include file='frontend/index/footer.tpl'}
+			</div>	
+			<div class="shopware_footer inner">
+				{s name="IndexRealizedWith"}Realisiert mit{/s} <a href="http://www.shopware.de" target="_blank" title="{s name='IndexRealizedShopsystem'}Shopware{/s}">{s name="IndexRealizedShopsystem"}Shopware{/s}</a>
+			</div>
 		</div>
-		
-		<div class="shopware_footer">
-			{s name="IndexRealizedWith"}Realisiert mit{/s} <a href="http://www.shopware.de" target="_blank" title="{s name='IndexRealizedShopsystem'}Shopware{/s}">{s name="IndexRealizedShopsystem"}Shopware{/s}</a>
-		</div>
-	</div>
 	{/block}
 	{block name='frontend_index_body_inline'}{/block}
 </body>
